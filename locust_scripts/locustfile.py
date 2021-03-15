@@ -6,4 +6,8 @@ class QuickstartUser(HttpUser):
 
     @task
     def index_page(self):
-        self.client.get("/")
+        responsse = self.client.post(
+            url = "/insert",
+            headers = {"content-type": "application/json"},
+            json = {"name": "locust"})
+
